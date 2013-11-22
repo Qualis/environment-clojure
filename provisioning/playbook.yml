@@ -1,0 +1,28 @@
+---
+- hosts: all
+  sudo: yes
+
+  tasks:
+
+    - name: Update source.list
+      copy: src=config/sources.list dest=/etc/apt/sources.list backup=yes
+
+    - name: Install python-software-properties
+      apt: pkg=python-software-properties update_cache=yes
+
+    - name: Install avahi
+      apt: pkg=avahi-daemon
+
+    - name: Install vim
+      apt: pkg=vim
+
+    - name: Install java
+      apt: pkg=openjdk-7-jre
+
+    - name: Install lein
+      copy: src=resources/lein dest=/usr/local/bin/lein owner=vagrant group=vagrant mode=0755
+
+    - name: Install emacs
+      apt: pkg=emacs
+
+  handlers:
