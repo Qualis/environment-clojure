@@ -1,0 +1,4 @@
+vagrant-clojure
+===============
+
+Clojure vagrant
