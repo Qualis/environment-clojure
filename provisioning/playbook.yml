@@ -10,6 +10,9 @@
     - name: Install python-software-properties
       apt: pkg=python-software-properties update_cache=yes
 
+    - name: Add cassou/emacs24 apt repository
+      apt_repository: repo='ppa:cassou/emacs'
+
     - name: Install avahi
       apt: pkg=avahi-daemon
 
@@ -26,6 +29,10 @@
       copy: src=resources/lein dest=/usr/local/bin/lein owner=vagrant group=vagrant mode=0755
 
     - name: Install emacs
-      apt: pkg=emacs
+      apt: pkg=emacs24
+
+    - name: Install emacs-live
+      script: resources/install-emacs-live.sh
+      sudo: no
 
   handlers:
