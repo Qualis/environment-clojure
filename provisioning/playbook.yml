@@ -4,12 +4,6 @@
 
   tasks:
 
-    - name: Update source.list
-      copy: src=config/sources.list dest=/etc/apt/sources.list backup=yes
-
-    - name: Install python-software-properties
-      apt: pkg=python-software-properties update_cache=yes
-
     - name: Add cassou/emacs24 apt repository
       apt_repository: repo='ppa:cassou/emacs'
 
