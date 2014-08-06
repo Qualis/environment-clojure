@@ -3,35 +3,6 @@
 
   tasks:
 
-    - name: Install java
-      apt: pkg=openjdk-7-jre
-      tags: development
-      sudo: yes
-
-    - name: Install leiningen
-      apt: pkg=leiningen
-      tags: development
-      sudo: yes
-
-    - name: Install git
-      apt: pkg=git-core
-      tags: development
-      sudo: yes
-
-    - name: Install vim
-      apt: pkg=vim
-      tags: development
-      sudo: yes
-
-    - name: Install VimClojure
-      git: repo=https://github.com/vim-scripts/VimClojure.git dest=~/.vim/bundle/VimClojure
-      tags: development
-
-    - name: Update .vimrc
-      lineinfile: dest=~/.vimrc line="{{ item }}" create=yes
-      with_items:
-      - syntax on
-      - filetype plugin indent on
-      tags: development
+    - include: clojure.yml
 
   handlers:
