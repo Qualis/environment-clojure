@@ -1,32 +1,37 @@
 ---
 - hosts: all
-  sudo: yes
 
   tasks:
 
-    - name: Add cassou/emacs24 apt repository
-      apt_repository: repo='ppa:cassou/emacs'
+    - name: Install java
+      apt: pkg=openjdk-7-jre
+      tags: development
+      sudo: yes
 
-    - name: Install avahi
-      apt: pkg=avahi-daemon
-
-    - name: Install vim
-      apt: pkg=vim
+    - name: Install leiningen
+      apt: pkg=leiningen
+      tags: development
+      sudo: yes
 
     - name: Install git
       apt: pkg=git-core
+      tags: development
+      sudo: yes
 
-    - name: Install java
-      apt: pkg=openjdk-7-jre
+    - name: Install vim
+      apt: pkg=vim
+      tags: development
+      sudo: yes
 
-    - name: Install lein
-      copy: src=resources/lein dest=/usr/local/bin/lein owner=vagrant group=vagrant mode=0755
+    - name: Install VimClojure
+      git: repo=https://github.com/vim-scripts/VimClojure.git dest=~/.vim/bundle/VimClojure
+      tags: development
 
-    - name: Install emacs
-      apt: pkg=emacs24
-
-    - name: Install emacs-live
-      script: resources/install-emacs-live.sh
-      sudo: no
+    - name: Update .vimrc
+      lineinfile: dest=~/.vimrc line="{{ item }}" create=yes
+      with_items:
+      - syntax on
+      - filetype plugin indent on
+      tags: development
 
   handlers:
