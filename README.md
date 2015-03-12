@@ -1,4 +1,2 @@
-vagrant-clojure
-===============
-
-Clojure vagrant
+environment-clojure
+===================

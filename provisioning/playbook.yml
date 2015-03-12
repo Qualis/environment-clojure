@@ -1,8 +1,0 @@
----
-- hosts: all
-
-  tasks:
-
-    - include: clojure.yml
-
-  handlers:
