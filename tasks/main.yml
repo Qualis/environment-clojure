@@ -1,5 +1,8 @@
     - name: Add java 8 ppa
       apt_repository: repo="ppa:openjdk-r/ppa" update_cache=yes
+      tags:
+      - clojure
+      - development
       sudo: yes
 
     - name: Install java
