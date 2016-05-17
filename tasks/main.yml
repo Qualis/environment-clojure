@@ -33,8 +33,8 @@
       - development
       sudo: yes
 
-    - name: Install VimClojure
-      git: repo=https://github.com/vim-scripts/VimClojure.git dest=~/.vim/bundle/VimClojure
+    - name: Install fireplace.vim
+      git: repo=https://github.com/tpope/vim-fireplace.git dest=~/.vim/bundle/vim-fireplace
       tags:
       - clojure
       - development
