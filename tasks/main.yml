@@ -39,12 +39,8 @@
       - clojure
       - development
 
-    - name: Update .vimrc
-      lineinfile: dest=~/.vimrc line="{{ item }}" create=yes
-      with_items:
-      - syntax on
-      - filetype plugin indent on
+    - name: Install Redl.vim
+      git: repo=https://github.com/dgrnbrg/vim-redl.git dest=~/.vim/bundle/vim-redl
       tags:
       - clojure
       - development
-
