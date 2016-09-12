@@ -1,0 +1,3 @@
+[submodule "roles/environment-core"]
+	path = roles/environment-core
+	url = https://github.com/svo/environment-core.git

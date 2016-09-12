@@ -9,4 +9,5 @@
       - clojure
 
   roles:
-     - ../environment-clojure
+     - environment-core
+     - .
