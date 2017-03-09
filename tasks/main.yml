@@ -33,14 +33,11 @@
       - development
       become: yes
 
-    - name: Install fireplace.vim
-      git: repo=https://github.com/tpope/vim-fireplace.git dest=~/.vim/bundle/vim-fireplace
-      tags:
-      - clojure
-      - development
-
-    - name: Install Redl.vim
-      git: repo=https://github.com/dgrnbrg/vim-redl.git dest=~/.vim/bundle/vim-redl
+    - name: Install vim plugin
+      git: repo={{ item.repo }} dest=~/.vim/bundle/{{ item.name }}
+      with_items:
+      - {repo: "https://github.com/tpope/vim-fireplace.git", name: vim-fireplace}
+      - {repo: "https://github.com/dgrnbrg/vim-redl.git", name: vim-redl}
       tags:
       - clojure
       - development
