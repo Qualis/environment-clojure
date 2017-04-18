@@ -1,11 +1,11 @@
-    - name: Add java 8 ppa
+    - name: Add OpenJDK repository
       apt_repository: repo="ppa:openjdk-r/ppa" update_cache=yes
       tags:
       - clojure
       - development
       become: yes
 
-    - name: Install java
+    - name: Install OpenJDK JRE
       apt: pkg=openjdk-8-jre
       tags:
       - clojure
