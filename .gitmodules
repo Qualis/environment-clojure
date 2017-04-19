@@ -1,3 +1,6 @@
 [submodule "roles/environment-core"]
 	path = roles/environment-core
 	url = https://github.com/svo/environment-core.git
+[submodule "roles/environment-openjdk"]
+	path = roles/environment-openjdk
+	url = https://github.com/svo/environment-openjdk.git
