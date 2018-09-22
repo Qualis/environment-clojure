@@ -1,2 +1,2 @@
-environment-clojure
-===================
+Ansible Clojure
+===============

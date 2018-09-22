@@ -1,29 +1,10 @@
+- name: Install wget
+  apt: pkg=wget
+  become: yes
 
-    - name: Install lein
-      get_url: url=https://raw.github.com/technomancy/leiningen/stable/bin/lein dest=/usr/local/bin/lein mode=0755
-      tags:
-      - clojure
-      - development
-      become: yes
+- name: Get lein
+  get_url: url=https://raw.github.com/technomancy/leiningen/stable/bin/lein dest=/usr/local/bin/lein mode=0755
+  become: yes
 
-    - name: Install git
-      apt: pkg=git-core
-      tags:
-      - clojure
-      - development
-      become: yes
-
-    - name: Install vim
-      apt: pkg=vim
-      tags:
-      - clojure
-      - development
-      become: yes
-
-    - name: Install vim plugin
-      git: repo={{ item.repo }} dest=~/.vim/bundle/{{ item.name }}
-      with_items:
-      - {repo: "https://github.com/tpope/vim-fireplace.git", name: vim-fireplace}
-      tags:
-      - clojure
-      - development
+- name: Install lein
+  command: lein --version

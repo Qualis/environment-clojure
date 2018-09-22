@@ -1,7 +1,11 @@
 ---
 - hosts: all
 
+  pre_tasks:
+
+    - name: Install JDK
+      apt: pkg=openjdk-8-jdk
+      become: yes
+
   roles:
-     - environment-core
-     - environment-openjdk
-     - ../environment-clojure
+    - .
